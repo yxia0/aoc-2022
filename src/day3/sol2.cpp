@@ -62,9 +62,6 @@ int main()
             for (int c = 0; c < rucksackLen; ++c)
             {
                 typeFreq[rucksack[c] - SHIFT] = 1;
-                // std::cout << "Setting!!"
-                //           << "\n"
-                //           << std::endl;
             }
         }
         else if (row % 3 == 1)
@@ -76,9 +73,6 @@ int main()
             {
                 if (typeFreq[rucksack[c] - SHIFT] == 1)
                 {
-                    std::cout << "Find a potential badge!!"
-                              << "\n"
-                              << std::endl;
                     typeFreq[rucksack[c] - SHIFT] = 2;
                 }
             }
@@ -89,16 +83,10 @@ int main()
             {
                 if (typeFreq[rucksack[c] - SHIFT] == 2)
                 {
-                    std::cout << "Find the lost badge!!"
-                              << "\n"
-                              << std::endl;
                     typeFreq[rucksack[c] - SHIFT] = 3;
                 }
             }
             // traverse frequency to get priority
-            std::cout << "Lets traverse!!"
-                      << "\n"
-                      << std::endl;
             for (int i = 0; i < 58; ++i)
             {
                 if (typeFreq[i] == 3)
