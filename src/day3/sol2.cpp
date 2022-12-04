@@ -23,7 +23,7 @@ int main()
     traverse the frequency array to get the priority of a char with
     frequency 3 and add it to priority sum.
     */
-    int SHIFT = 65; // used to set 'A' as 0, 'B' as 1..
+    int OFFSET = 65; // used to set 'A' as 0, 'B' as 1..
     int prioritySum = 0;
 
     // initialise priority array
@@ -61,16 +61,16 @@ int main()
             */
             for (int c = 0; c < rucksackLen; ++c)
             {
-                typeFreq[rucksack[c] - SHIFT] = 1;
+                typeFreq[rucksack[c] - OFFSET] = 1;
             }
         }
         else if (row % 3 == 1)
         {
             for (int c = 0; c < rucksackLen; ++c)
             {
-                if (typeFreq[rucksack[c] - SHIFT] == 1)
+                if (typeFreq[rucksack[c] - OFFSET] == 1)
                 {
-                    typeFreq[rucksack[c] - SHIFT] = 2;
+                    typeFreq[rucksack[c] - OFFSET] = 2;
                 }
             }
         }
@@ -78,9 +78,9 @@ int main()
         {
             for (int c = 0; c < rucksackLen; ++c)
             {
-                if (typeFreq[rucksack[c] - SHIFT] == 2)
+                if (typeFreq[rucksack[c] - OFFSET] == 2)
                 {
-                    typeFreq[rucksack[c] - SHIFT] = 3;
+                    typeFreq[rucksack[c] - OFFSET] = 3;
                 }
             }
             // traverse frequency to get priority

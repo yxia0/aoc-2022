@@ -16,7 +16,7 @@ int main()
         2. set the char occur in the second compartment to 2
         only if its occurence is 1.
     */
-    int SHIFT = 65; // used to set 'A' as 0, 'B' as 1..
+    int OFFSET = 65; // used to set 'A' as 0, 'B' as 1..
     int prioritySum = 0;
 
     // initialise priority array
@@ -42,13 +42,13 @@ int main()
         int fstCompEnd = (rucksackLen / 2);
         for (int c = 0; c < fstCompEnd; ++c)
         {
-            typeFreq[rucksack[c] - SHIFT] = 1;
+            typeFreq[rucksack[c] - OFFSET] = 1;
         }
         for (int k = fstCompEnd; k < rucksackLen; ++k)
         {
-            if (typeFreq[rucksack[k] - SHIFT] == 1)
+            if (typeFreq[rucksack[k] - OFFSET] == 1)
             {
-                typeFreq[rucksack[k] - SHIFT] = 2;
+                typeFreq[rucksack[k] - OFFSET] = 2;
             }
         }
         // traverse frequency to get priority
