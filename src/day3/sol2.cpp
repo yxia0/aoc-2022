@@ -66,9 +66,6 @@ int main()
         }
         else if (row % 3 == 1)
         {
-            std::cout << "Process second row!!"
-                      << "\n"
-                      << std::endl;
             for (int c = 0; c < rucksackLen; ++c)
             {
                 if (typeFreq[rucksack[c] - SHIFT] == 1)
