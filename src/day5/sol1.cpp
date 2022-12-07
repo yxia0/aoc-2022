@@ -5,6 +5,7 @@ what crate ends up on top of each stack?
 #include <array>
 #include <stack>
 #include <string>
+#include <fstream>
 #include <iostream>
 
 int main()
@@ -39,18 +40,49 @@ int main()
         }
     }
 
-    // for (int k = 0; k < 9; ++k)
-    // {
-    //     std::stack<int> s;
-    //     s = supplyStacks[k];
-    //     while (s.size() != 0)
-    //     {
-    //         std::cout << (char)(s.top()) << ", ";
-    //         s.pop();
-    //     }
-    //     std::cout << "\n"
-    //               << std::endl;
-    // }
+    int row = 0;
+    std::string line;
+    char char1;
+    int num;
+    int strId;
+    int dstId;
+    int removedItem;
+    std::ifstream in("input.txt");
+
+    // skip lines
+    while (row < 10)
+    {
+        std::getline(in, line);
+        std::cout << line << std::endl;
+        ++row;
+    }
+
+    // Read instructions
+    while ((in >> char1 >> char1 >> char1 >> char1 >> num >> char1 >> char1 >> char1 >> char1 >> strId >> char1 >> char1 >> dstId))
+    {
+        // std::cout << "Move " << num << " From " << strId << " To " << dstId;
+        // break;
+        for (int p = 0; p < num; ++p)
+        {
+            removedItem = supplyStacks[strId - 1].top();
+            supplyStacks[strId - 1].pop();
+            supplyStacks[dstId - 1].push(removedItem);
+        }
+        break;
+    }
+
+    for (int k = 0; k < 9; ++k)
+    {
+        std::stack<int> s;
+        s = supplyStacks[k];
+        while (s.size() != 0)
+        {
+            std::cout << (char)(s.top()) << ", ";
+            s.pop();
+        }
+        std::cout << "\n"
+                  << std::endl;
+    }
 
     return 1;
 }
