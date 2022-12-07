@@ -24,8 +24,7 @@ int main()
     stackElement[7] = "FSWT";
     stackElement[8] = "NCR";
 
-    std::array<std::stack<int>, 9>
-        supplyStacks;
+    std::array<std::stack<int>, 9> supplyStacks;
 
     for (int i = 0; i < 9; ++i)
     {
