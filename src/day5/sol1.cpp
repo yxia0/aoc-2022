@@ -12,7 +12,9 @@ int main()
 {
     /* Strategy
     Array of stack
+    First out First in.
     */
+
     // Initialisation
     std::array<std::string, 9> stackElement;
     stackElement[0] = "SZPDLBFC";
@@ -49,39 +51,36 @@ int main()
     int removedItem;
     std::ifstream in("input.txt");
 
-    // skip lines
+    // Skip lines
     while (row < 10)
     {
         std::getline(in, line);
-        std::cout << line << std::endl;
         ++row;
     }
 
-    // Read instructions
+    // Read and perform instructions
     while ((in >> char1 >> char1 >> char1 >> char1 >> num >> char1 >> char1 >> char1 >> char1 >> strId >> char1 >> char1 >> dstId))
     {
-        // std::cout << "Move " << num << " From " << strId << " To " << dstId;
-        // break;
         for (int p = 0; p < num; ++p)
         {
             removedItem = supplyStacks[strId - 1].top();
             supplyStacks[strId - 1].pop();
             supplyStacks[dstId - 1].push(removedItem);
         }
-        break;
     }
 
+    // Print the top char across stacks
     for (int k = 0; k < 9; ++k)
     {
         std::stack<int> s;
         s = supplyStacks[k];
-        while (s.size() != 0)
+        int i = 0;
+        while (i != 1)
         {
-            std::cout << (char)(s.top()) << ", ";
+            std::cout << (char)(s.top());
             s.pop();
+            ++i;
         }
-        std::cout << "\n"
-                  << std::endl;
     }
 
     return 1;
